@@ -1,7 +1,12 @@
-var http = require('http');
+import axios from "axios";
+import express, { response } from 'express'
 
-//create a server object:
-http.createServer(function (req, res) {
-  res.write('Hello World!'); //write a response to the client
-  res.end(); //end the response
-}).listen(8080); //the server object listens on port 8080
+const app = express();
+
+app.get('/', (req, res) => {
+	 res.status(200).send("<h1>Bulk upload Server</h1>")
+});
+
+app.listen(8080, () => {
+    console.log("Server started on port 8080");
+});
